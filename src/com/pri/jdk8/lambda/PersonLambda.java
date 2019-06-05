@@ -3,6 +3,7 @@ package com.pri.jdk8.lambda;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class PersonLambda {
 
@@ -28,14 +29,11 @@ System.out.println("###################  PRINTING LIST POST SHORTING  ##########
 		personLambda.performConditional(people, p ->p.getLastName().startsWith("S"));
 	}
 	
-	public void performConditional(List<Person> p, Condition c) {
+	public void performConditional(List<Person> p, Predicate<Person> c) {
 		for (Person person : p) {
 			if(c.test(person))
 			System.out.println(person);
 		}
 	}
 
-}
-interface Condition{
-	public boolean test(Person p);
 }
